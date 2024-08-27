@@ -13,3 +13,34 @@ body {
 	display: grid;
 	place-content: center;
 }
+canvas {
+	border: 1px solid rgba(255,255,255,1);
+	border-radius: 20px;
+}
+h1 {
+	text-align: center;
+	font-size: 20px;
+	margin: 0;
+	padding: 3px;
+}
+.score-strong {
+	text-align: right;
+}
+.score-span {
+	color: #F00;
+}
+.t {
+	color: #0ff;
+}
+.e {
+	color: #f0f;
+}
+.r {
+	color: #f00;
+}
+.i {
+	color: #ff0;
+}
+.s {
+	color: #0f0;
+}

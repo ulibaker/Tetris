@@ -3,8 +3,8 @@ const canvas = document.querySelector('canvas')
 const context = canvas.getContext('2d')
 
 const BLOCK_SIZE = 20
-const BOARD_WIDTH = 14
-const BOARD_HEIGHT = 30
+const BOARD_WIDTH = 15
+const BOARD_HEIGHT = 32
 
 canvas.width = BLOCK_SIZE * BOARD_WIDTH
 canvas.height = BLOCK_SIZE * BOARD_HEIGHT
@@ -13,41 +13,44 @@ context.scale(BLOCK_SIZE, BLOCK_SIZE)
 
 //BOARD
 const board = [
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1]
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
 //FIRST PIECE
+let color = getRandomColor()
 const piece = {
-	position: { x: 5, y: 5 },
+	position: { x: 6, y: 0 },
 	shape: [
 		[1, 1],
 		[1, 1]
@@ -61,32 +64,87 @@ const pieces = [
 		[1, 1]
 	],
 	[
-		[1, 1, 1, 1]
+		[1]
 	],
 	[
+		[1, 1, 1],
+		[1, 1, 1],
+		[1, 1, 1]
+	],
+	[
+		[1, 1, 1, 1],
+		[0, 0, 0, 0],
+		[0, 0, 0, 0],
+		[0, 0, 0, 0]
+	],
+	[
+		[0, 0, 0],
 		[1, 1, 1],
 		[0, 1, 0]
 	],
 	[
+		[0, 1, 0],
+		[1, 1, 1],
+		[0, 1, 0]
+	],
+	[
+		[1, 1],
+		[0, 1]
+	],
+	[
+		[0, 0, 0],
 		[1, 1, 0],
 		[0, 1, 1]
 	],
 	[
+		[0, 0, 0],
+		[1, 1, 1],
+		[0, 1, 1]
+	],
+	[
+		[0, 0, 0],
 		[0, 1, 1],
 		[1, 1, 0]
 	],
 	[
+		[0, 0, 0],
+		[0, 1, 1],
+		[1, 1, 1]
+	],
+	[
+		[0, 0, 0],
+		[1, 1, 1],
+		[1, 1, 1]
+	],
+	[
+		[0, 0, 0],
 		[1, 0, 0],
 		[1, 1, 1]
 	],
 	[
+		[0, 0, 0, 0],
+		[0, 0, 0, 0],
+		[1, 0, 0, 0],
+		[1, 1, 1, 1]
+	],
+	[
+		[0, 0, 0],
 		[1, 1, 1],
 		[1, 0, 0]
+	],
+	[
+		[0, 0, 0, 0],
+		[0, 0, 0, 0],
+		[1, 1, 1, 1],
+		[1, 0, 0, 0]
 	],
 ]
 
 let dropCounter = 0
 let lastTime = 0
+let n = 255
+let points = 0
+let redGB = 255
 
 //GAME LOOP
 function update(time = 0) {
@@ -95,7 +153,10 @@ function update(time = 0) {
 	lastTime = time
 	dropCounter += deltaTime
 
-	if(dropCounter > 500) {
+	if(dropCounter > n) {
+		n = n - 0.3
+		redGB = n
+		console.log(n)
 		piece.position.y++
 		dropCounter = 0
 
@@ -118,7 +179,7 @@ function draw() {
 	board.forEach((row, y) => {
 		row.forEach((value, x) => {
 			if(value === 1) {
-				context.fillStyle = '#F00'
+				context.fillStyle = 'rgb(255,'+redGB+','+redGB+')'
 				context.fillRect(x, y, 1, 1)
 			}
 		})
@@ -127,15 +188,57 @@ function draw() {
 	piece.shape.forEach((row, y) => {
 		row.forEach((value, x) => {
 			if(value === 1) {
-				context.fillStyle = '#00F'
+				context.fillStyle = color
 				context.fillRect(x+piece.position.x, y+piece.position.y, 1, 1)
 			}
 		})
 	})
 }
+//RANDOM COLOR
+function getRandomColor() {
+	let newColor = ''
+	let option = 0
+	option =  Math.floor(Math.random() * 6)
+	switch(option) {
+		case 0:
+			newColor = '#f0f'
+		break
+		case 1:
+			newColor = '#0f0'
+		break
+		case 2:
+			newColor = '#00f'
+		break
+		case 3:
+			newColor = '#e51'
+		break
+		case 4:
+			newColor = '#ff0'
+		break
+		case 5:
+			newColor = '#0ff'
+		break
+	}
+	//console.log(option)
+	//console.log(newColor)
+	return newColor
+}
 
 //CONTROLS
 document.addEventListener('keydown', event => {
+	if(event.key === 'W' || event.key === 'w') { 
+		const rotated = []
+
+		for(let i=0; i<piece.shape[0].length; i++) {
+			const row = []
+
+			for(let j=piece.shape.length-1; j>=0; j--) {
+				row.push(piece.shape[j][i])
+			}
+			rotated.push(row)
+		}
+		piece.shape = rotated
+	}
 	if(event.key === 'A' || event.key === 'a') { 
 		piece.position.x--
 		if(checkCollision()) {
@@ -185,6 +288,15 @@ function solidifyPiece() {
 	piece.position.x = 6
 	piece.position.y = 0
 	piece.shape = pieces[Math.floor(Math.random() * pieces.length)]
+	color = getRandomColor()
+
+	if(checkCollision()) {
+		n = 255
+		points = 0
+		document.querySelector('.score-span').innerText = points
+		window.alert(' | GAME OVER | ')
+		board.forEach((row) => row.fill(0))
+	}
 }
 
 //DESTROY FULL ROWS
@@ -194,6 +306,9 @@ function removeRows() {
 	board.forEach((row, y) => {
 		if(row.every(value => value === 1)) {
 			rowsToRemove.push(y)
+			n = n + 20
+			points = points + 100
+			document.querySelector('.score-span').innerText = points
 		}
 	})
 
